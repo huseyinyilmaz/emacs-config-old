@@ -1,0 +1,21 @@
+[submodule "plugins/autocomplete"]
+	path = plugins/autocomplete
+	url = https://github.com/m2ym/auto-complete.git
+[submodule "plugins/autopair"]
+	path = plugins/autopair
+	url = https://github.com/emacsmirror/autopair.git
+[submodule "plugins/emacs-color-theme-solarized"]
+	path = plugins/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "plugins/flymake-python"]
+	path = plugins/flymake-python
+	url = git@github.com:huseyinyilmaz/flymake-python.git
+[submodule "plugins/js2-mode"]
+	path = plugins/js2-mode
+	url = https://github.com/mooz/js2-mode.git
+[submodule "plugins/nxhtml"]
+	path = plugins/nxhtml
+	url = https://github.com/emacsmirror/nxhtml.git
+[submodule "plugins/yasnippet"]
+	path = plugins/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
