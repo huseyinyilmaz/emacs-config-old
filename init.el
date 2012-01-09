@@ -108,3 +108,8 @@
 ;; enable narrowing ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 (put 'narrow-to-region 'disabled nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; enable paren matching mode ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(show-paren-mode t)
