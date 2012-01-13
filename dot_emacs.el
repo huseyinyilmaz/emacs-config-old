@@ -1,15 +1,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; configure load-path ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/plugins/")
-(add-to-list 'load-path "~/.emacs.d/plugins/autocomplete/")
-(add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0/")
-(add-to-list 'load-path "~/.emacs.d/plugins/emacs-color-theme-solarized/")
-(add-to-list 'load-path "~/.emacs.d/plugins/flymake-python/")
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/plugins")
+(add-to-list 'load-path "~/.emacs.d/plugins/autocomplete")
+(add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
+(add-to-list 'load-path "~/.emacs.d/plugins/emacs-color-theme-solarized")
+(add-to-list 'load-path "~/.emacs.d/plugins/flymake-python")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/plugins/autopair")
-
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; enable ido mode ;;
@@ -113,3 +112,16 @@
 ;; enable paren matching mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (show-paren-mode t)
+
+;;;;;;;;;;;;;;;;;;
+;; enable slime ;;
+;;;;;;;;;;;;;;;;;;
+(setq inferior-lisp-program "sbcl")
+
+(add-to-list 'load-path "~/.emacs.d/plugins/slime")
+(add-to-list 'load-path "~/.emacs.d/plugins/slime/contrib")
+
+(require 'slime-autoloads)
+(slime-setup '(slime-fancy))
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))

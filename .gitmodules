@@ -19,3 +19,6 @@
 [submodule "plugins/yasnippet"]
 	path = plugins/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "plugins/slime"]
+	path = plugins/slime
+	url = https://github.com/emacsmirror/slime.git
