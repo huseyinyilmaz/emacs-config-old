@@ -8,7 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/plugins/flymake-python")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(add-to-list 'load-path "~/.emacs.d/plugins/autopair")
+(add-to-list 'load-path "~/.emacs.d/plugins/js2-mode")
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; enable ido mode ;;
@@ -44,7 +44,6 @@
 ;;;;;;;;;;;;;;;;;;;;;
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enable flymake-python ;;
@@ -97,12 +96,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;
 (global-linum-mode 1)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; enable autopair mode ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;; 
-(require 'autopair)
-(autopair-global-mode) ;; to enable in all buffers
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; enable narrowing ;;
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -123,5 +116,5 @@
 
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy))
-;; (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-;; (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
