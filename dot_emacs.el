@@ -23,11 +23,10 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/autocomlete/ac-dict/")
 (ac-config-default)
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; set window title ;;
 ;;;;;;;;;;;;;;;;;;;;;;
-(setq frame-title-format '("Emacs @ " system-name ": %b %+%+ %f"))
+(setq frame-title-format (list user-login-name "@" system-name " : %b %+ %f"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enable color theme ;;
