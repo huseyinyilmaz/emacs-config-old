@@ -10,8 +10,7 @@ At your home directory run
 
 After that install dependencies
 
-    apt-get install pep8 # python
-    apt-get install pyflakes # python
+    sudo pip install -r plugins/flymake-python/requirements.pip # install python validation tools.
 
     apt-get install sbcl # cl
 
