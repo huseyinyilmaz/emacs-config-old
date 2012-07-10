@@ -54,7 +54,7 @@
 	   (local-file (file-relative-name
 			temp-file
 			(file-name-directory buffer-file-name)))
-	   (options (when trigger-type (list "--trigger-type" trigger-type))))
+	   (options (when trigger-type (list "--debug" "--trigger-type" trigger-type))))
       (list "~/.emacs.d/plugins/flymake-python/pyflymake.py" (append options (list local-file)))))
   
   (add-to-list 'flymake-allowed-file-name-masks
