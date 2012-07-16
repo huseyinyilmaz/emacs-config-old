@@ -11,6 +11,11 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/js2-mode")
 
 ;;;;;;;;;;;;;;;;;;;;;
+;; disable toolbar ;;
+;;;;;;;;;;;;;;;;;;;;;
+(tool-bar-mode -1)
+
+;;;;;;;;;;;;;;;;;;;;;
 ;; enable ido mode ;;
 ;;;;;;;;;;;;;;;;;;;;;
 (require 'ido)
