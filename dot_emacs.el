@@ -28,6 +28,7 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/autocomlete/ac-dict/")
 (ac-config-default)
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; set window title ;;
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -78,6 +79,13 @@
 
 (add-hook 'post-command-hook 'my-flymake-show-help)
 
+
+;;;;;;;;;;;;;;;;;;;;;
+;; mark ipdb lines ;;
+;;;;;;;;;;;;;;;;;;;;;
+;(load 'utils)
+;(add-hook 'python-mode-hook 'mark-ipdb)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; disable flymake for html ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -113,12 +121,19 @@
 ;;;;;;;;;;;;;;;;;;
 ;; enable slime ;;
 ;;;;;;;;;;;;;;;;;;
-(setq inferior-lisp-program "sbcl")
+;; enable slime with slime helper
+(condition-case ex ; if slime-helper is not installed do not give an error
+    (progn
+      (load (expand-file-name "~/quicklisp/slime-helper.el"))
 
-(add-to-list 'load-path "~/.emacs.d/plugins/slime")
-(add-to-list 'load-path "~/.emacs.d/plugins/slime/contrib")
+      ;; Replace "sbcl" with the path to your implementation
+      (setq inferior-lisp-program "sbcl")
 
-(require 'slime-autoloads)
-(slime-setup '(slime-fancy))
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+      ;; connect slime automatically
+      ;; when slime-mode is opened
+      (defun cliki:start-slime ()
+	(unless (slime-connected-p)
+	  (save-excursion (slime))))
+      ;; add full linking set
+      (add-hook 'slime-mode-hook 'cliki:start-slime))
+  ('error (message "slime could not be loaded")))
