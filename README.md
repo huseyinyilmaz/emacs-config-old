@@ -11,10 +11,8 @@ At your home directory run
 After that install dependencies
 
     sudo pip install -r plugins/flymake-python/requirements.pip # install python validation tools.
-    cd .. # goto home directory you could also just write (cd[enter-key])
-    ln -s .emacs.d/dot_emacs.el .emacs.el # create a symbolic link
 
-    This dependency is for common lisp. if you don't need common lisp support skip the rest
+    # This dependency is for common lisp. if you don't need common lisp support skip the rest
 
     TODO quicklisp and slime-helper installation
     
