@@ -9,6 +9,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/flymake-python")
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/plugins/js2-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/paredit")
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; disable toolbar ;;
@@ -117,6 +118,25 @@
 ;; enable paren matching mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (show-paren-mode t)
+
+
+;;;;;;;;;;;;;;;;;;;;
+;; enable paredit ;;
+;;;;;;;;;;;;;;;;;;;;
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+;; Stop SLIME's REPL from grabbing DEL,
+;; which is annoying when backspacing over a '('
+(defun override-slime-repl-bindings-with-paredit ()
+  (define-key slime-repl-mode-map
+    (read-kbd-macro paredit-backward-delete-key) nil))
+(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
 ;;;;;;;;;;;;;;;;;;
 ;; enable slime ;;

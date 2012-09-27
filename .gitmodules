@@ -19,3 +19,6 @@
 [submodule "plugins/slime"]
 	path = plugins/slime
 	url = https://github.com/emacsmirror/slime.git
+[submodule "plugins/paredit"]
+	path = plugins/paredit
+	url = git://github.com/emacsmirror/paredit.git
