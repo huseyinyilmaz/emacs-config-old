@@ -161,10 +161,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enable erlang-mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
-(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.8/emacs"
-      load-path))
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
-
-(require 'erlang-flymake)
+(condition-case ex
+    (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.8/emacs"
+			   load-path))
+  (setq erlang-root-dir "/usr/lib/erlang")
+  (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+  (require 'erlang-start)
+  (require 'erlang-flymake))
