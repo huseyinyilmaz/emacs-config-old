@@ -22,3 +22,6 @@
 [submodule "plugins/paredit"]
 	path = plugins/paredit
 	url = git://github.com/emacsmirror/paredit.git
+[submodule "plugins/pony"]
+	path = plugins/pony
+	url = git://github.com/davidmiller/pony-mode.git

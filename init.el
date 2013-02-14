@@ -40,6 +40,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;(require 'color-theme)
 (require 'color-theme-solarized)
+;; (color-theme-solarized-light)
 (color-theme-solarized-dark)
 ;(color-theme-initialize)
 ;(color-theme-hober)
@@ -54,18 +55,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enable flymake-python ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (load "flymake" t)
-  (defun flymake-pylint-init (&optional trigger-type)
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-with-folder-structure))
-	   (local-file (file-relative-name
-			temp-file
-			(file-name-directory buffer-file-name)))
-	   (options (when trigger-type (list "--debug" "--trigger-type" trigger-type))))
-      (list "~/.emacs.d/plugins/flymake-python/pyflymake.py" (append options (list local-file)))))
-  
-  (add-to-list 'flymake-allowed-file-name-masks
-	       '("\\.py\\'" flymake-pylint-init)))
+(when (load "myflymake" t)
+  (progn (checker-bee-init)
+	 ;; (setq flymake-log-level 3)
+	 ))
 
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
@@ -161,10 +154,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enable erlang-mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
-(condition-case ex
-    (setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.8/emacs"
-			   load-path))
-  (setq erlang-root-dir "/usr/lib/erlang")
-  (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-  (require 'erlang-start)
-  (require 'erlang-flymake))
+
+(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.8/emacs"
+		       load-path))
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+
+(require 'erlang-start)
+(require 'erlang-flymake)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; set regular-expression mode to string ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 're-builder)
+(reb-change-syntax 'string)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Disable the splash screen ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq inhibit-splash-screen t)
