@@ -25,3 +25,6 @@
 [submodule "plugins/pony"]
 	path = plugins/pony
 	url = git://github.com/davidmiller/pony-mode.git
+[submodule "plugins/distel"]
+	path = plugins/distel
+	url = git://github.com/massemanet/distel.git

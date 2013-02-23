@@ -10,7 +10,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/plugins/js2-mode")
 (add-to-list 'load-path "~/.emacs.d/plugins/paredit")
-
+(add-to-list 'load-path "~/.emacs.d/plugins/distel/elisp")
 ;;;;;;;;;;;;;;;;;;;;;
 ;; disable toolbar ;;
 ;;;;;;;;;;;;;;;;;;;;;
@@ -112,7 +112,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (show-paren-mode t)
 
-
 ;;;;;;;;;;;;;;;;;;;;
 ;; enable paredit ;;
 ;;;;;;;;;;;;;;;;;;;;
@@ -155,10 +154,13 @@
 ;; enable erlang-mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.8/emacs"
-		       load-path))
 (setq erlang-root-dir "/usr/lib/erlang")
+(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.8/emacs" load-path))
 (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+
+(add-to-list
+   'load-path
+       (car (file-expand-wildcards "/usr/lib/erlang/lib/tools-*/emacs")))
 
 (require 'erlang-start)
 (require 'erlang-flymake)
@@ -174,3 +176,49 @@
 ;; Disable the splash screen ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-splash-screen t)
+
+;;;;;;;;;;;;;;;;
+;; add distel ;;
+;;;;;;;;;;;;;;;;
+(require 'distel)
+(distel-setup)
+
+;; http://bc.tech.coop/blog/070528.html
+;; Some Erlang customizations
+;; (add-hook 'erlang-mode-hook
+;; 	  (lambda ()
+;; 	    ;; when starting an Erlang shell in Emacs, default in the node name
+;; 	    (setq inferior-erlang-machine-options '("-sname" "emacs"))
+;; 	    ;; add Erlang functions to an imenu menu
+;; 	    (imenu-add-to-menubar "imenu")))
+
+;; ;; A number of the erlang-extended-mode key bindings are useful in the shell too
+;; (defconst distel-shell-keys
+;;   '(("\C-\M-i"   erl-complete)
+;;     ("\M-?"      erl-complete)	
+;;     ("\M-."      erl-find-source-under-point)
+;;     ("\M-,"      erl-find-source-unwind) 
+;;     ("\M-*"      erl-find-source-unwind) 
+;;     )
+;;   "Additional keys to bind when in Erlang shell.")
+
+;; (add-hook 'erlang-shell-mode-hook
+;; 	  (lambda ()
+;; 	    ;; add some Distel bindings to the Erlang shell
+;; 	    (dolist (spec distel-shell-keys)
+;; 	      (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
+
+;; (defun get-erlang-app-dir ()
+;;   (let* ((src-path (file-name-directory (buffer-file-name)))
+;;      (pos (string-match "/src/" src-path)))
+;;     (if pos
+;;     (substring src-path 0 (+ 1 pos))
+;;       src-path)))
+
+;; (setq erlang-flymake-get-code-path-dirs-function
+;;       (lambda ()
+;;     (concat (get-erlang-app-dir) "ebin")))
+
+;; (setq erlang-flymake-get-code-include-dirs-function
+;;       (lambda ()
+;;     (concat (get-erlang-app-dir) "include")))
