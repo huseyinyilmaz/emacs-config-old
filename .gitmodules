@@ -28,3 +28,9 @@
 [submodule "plugins/distel"]
 	path = plugins/distel
 	url = git://github.com/massemanet/distel.git
+[submodule "plugins/multiplecursors"]
+	path = plugins/multiplecursors
+	url = git://github.com/emacsmirror/multiple-cursors.git
+[submodule "plugins/virtualenv"]
+	path = plugins/virtualenv
+	url = git://github.com/aculich/virtualenv.el.git
