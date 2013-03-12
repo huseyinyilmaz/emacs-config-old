@@ -10,9 +10,6 @@
 [submodule "plugins/js2-mode"]
 	path = plugins/js2-mode
 	url = https://github.com/mooz/js2-mode.git
-[submodule "plugins/nxhtml"]
-	path = plugins/nxhtml
-	url = https://github.com/emacsmirror/nxhtml.git
 [submodule "plugins/yasnippet"]
 	path = plugins/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
@@ -34,3 +31,6 @@
 [submodule "plugins/virtualenv"]
 	path = plugins/virtualenv
 	url = git://github.com/aculich/virtualenv.el.git
+[submodule "plugins/webmode"]
+	path = plugins/webmode
+	url = git://github.com/emacsmirror/web-mode.git
