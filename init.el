@@ -36,6 +36,7 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
@@ -59,6 +60,7 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 ;;;;;;;;;;;;;;;;;;;;;
 ;; enable ido mode ;;
 ;;;;;;;;;;;;;;;;;;;;;
