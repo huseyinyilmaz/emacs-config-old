@@ -196,6 +196,20 @@
   ('error (message "slime could not be loaded")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
+;; enable python mode ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+(setq py-install-directory "~/.emacs.d/plugins/python-mode")
+(add-to-list 'load-path py-install-directory)
+;; (setq py-load-pymacs-p t)
+(setq py-shell-name "ipython")
+
+(require 'python-mode)
+
+
+(require 'auto-complete-config)
+(ac-config-default)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enable erlang-mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -227,11 +241,6 @@
 ;;;;;;;;;;;;;;;;
 (require 'distel)
 (distel-setup)
-
-
-;;;;;;;;;;;;;;;;;;;;;;
-;; multiple cursors ;;
-;;;;;;;;;;;;;;;;;;;;;;
 
 ;; http://bc.tech.coop/blog/070528.html
 ;; Some Erlang customizations
@@ -272,3 +281,15 @@
 ;; (setq erlang-flymake-get-code-include-dirs-function
 ;;       (lambda ()
 ;;     (concat (get-erlang-app-dir) "include")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((huseyin-test . "huseyin test")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

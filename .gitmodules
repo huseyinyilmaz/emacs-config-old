@@ -34,3 +34,6 @@
 [submodule "plugins/webmode"]
 	path = plugins/webmode
 	url = git://github.com/emacsmirror/web-mode.git
+[submodule "plugins/python-mode"]
+	path = plugins/python-mode
+	url = git://github.com/emacsmirror/python-mode.git
